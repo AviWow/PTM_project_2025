@@ -1,5 +1,5 @@
 //package test;
-package PTM_project_2025;
+
 import java.util.Date;
 
 public class Message {
@@ -8,36 +8,46 @@ public class Message {
     public final double asDouble;
     public final Date date;
 
+    private void init(String s)
+    {
+
+    }
+
    public Message(byte[] date)
    {
+       double asDouble1;
        this.data = date;
        this.asText = new String(data);
        try{
-           this.asDouble = Double.parseDouble(asText);
-          }
-       catch(NumberFormatException e)
-       {
-           this.asDouble = Double.NaN
+           asDouble1 = Double.parseDouble(asText);
+
        }
+       catch(NumberFormatException e){
+           asDouble1 = Double.NaN;
+       }
+       this.asDouble = asDouble1;
        this.date = new Date();
    }
    public Message(String asText)
    {
+       double asDouble1;
        this.data = asText.getBytes();
        this.asText = asText;
        try{
-           this.asDouble = Double.parseDouble(asText);
+
+           asDouble1 = Double.parseDouble(asText);
        }
-       catch(NumberFormatException e)
-       {
-           this.asDouble = Double.NaN
+       catch(NumberFormatException e){
+           asDouble1 = Double.NaN;
        }
+       this.asDouble = asDouble1;
        this.date = new Date();
    }
    public Message(double asDouble)
    {
-       this.data = new byte[]{(byte)(asDouble)};
-       this.asText = new String(asDouble);
+
+       this.asText = Double.toString(asDouble);
+       this.data = asText.getBytes();
        this.asDouble = asDouble;
        this.date = new Date();
    }

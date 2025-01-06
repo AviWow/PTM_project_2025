@@ -1,11 +1,12 @@
 //package test;
-package PTM_project_2025;
-
+import java.util.Collection;
+import java.util.HashMap;
 public class TopicManagerSingleton {
 
     public static class TopicManager{
         public HashMap<String,Topic> topicMap;
         private static final TopicManager instance = new TopicManager();
+
         private TopicManager(){
             topicMap=new HashMap<String,Topic>();
         }
@@ -14,16 +15,16 @@ public class TopicManagerSingleton {
             Topic topic = topicMap.get(name);
             if(topic==null)
             {
-                topicMap.put(name,new Topic(name))
+                topic =new Topic(name);
+                topicMap.put(name,topic);
             }
-            else
                 return topic;
         }
-        public Collection getTopics()
+        public Collection<Topic> getTopics()
         {
-            return topicMap;
+            return (Collection) topicMap;
         }
-        public clear()
+        public void clear()
         {
             topicMap.clear();
         }

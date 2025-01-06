@@ -1,5 +1,4 @@
-package project_biu.graph;
-package PTM_project_2025;
+//package test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,10 +6,12 @@ import java.util.List;
 public class Topic {
     public final String name;
     private List<Agent> subs;
-    private List<Agent> pubs
+    private List<Agent> pubs;
 
     Topic(String name){
         this.name=name;
+        subs=new ArrayList<>();
+        pubs=new ArrayList<>();
     }
 
     public void subscribe(Agent a){
