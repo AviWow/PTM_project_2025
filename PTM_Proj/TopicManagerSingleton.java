@@ -1,10 +1,10 @@
-//package test;
+package test;
 import java.util.Collection;
 import java.util.HashMap;
 public class TopicManagerSingleton {
 
     public static class TopicManager{
-        public HashMap<String,Topic> topicMap;
+        private HashMap<String,Topic> topicMap;
         private static final TopicManager instance = new TopicManager();
 
         private TopicManager(){
@@ -20,9 +20,9 @@ public class TopicManagerSingleton {
             }
                 return topic;
         }
-        public Collection<Topic> getTopics()
+        public HashMap<String, Topic> getTopics()
         {
-            return (Collection) topicMap;
+            return topicMap;
         }
         public void clear()
         {

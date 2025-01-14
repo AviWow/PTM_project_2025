@@ -1,11 +1,11 @@
-package test;
+//package test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-import test.TopicManagerSingleton.TopicManager;
+
 
 public class MainTrain {
 
@@ -71,7 +71,7 @@ public class MainTrain {
     }
 
     public static void testBinGraph(){
-        TopicManager tm=TopicManagerSingleton.get();
+        TopicManagerSingleton.TopicManager tm=TopicManagerSingleton.get();
         tm.clear();
         Config c=new MathExampleConfig();
         c.create();
@@ -92,7 +92,7 @@ public class MainTrain {
     }
 
     public static void testTopicsGraph(){
-        TopicManager tm=TopicManagerSingleton.get();
+        TopicManagerSingleton.TopicManager tm=TopicManagerSingleton.get();
         tm.clear();
         Config c=new MathExampleConfig();
         c.create();

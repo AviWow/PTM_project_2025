@@ -1,4 +1,4 @@
-//package test;
+package test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +25,12 @@ public class Topic {
         for(Agent a : subs){
             a.callback(this.name,m);
         }
+    }
+    public List<Agent> getSubs(){
+        return subs;
+    }
+    public List<Agent> getPubs(){
+        return pubs;
     }
 
     public void addPublisher(Agent a){

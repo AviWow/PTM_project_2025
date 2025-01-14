@@ -1,7 +1,9 @@
-//package test;
+package test;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class Node {
@@ -11,6 +13,7 @@ public class Node {
 
     public Node(String name) {
         this.name = name;
+        edges = new ArrayList<Node>();
     }
     public String getName() {
         return name;
@@ -35,11 +38,31 @@ public class Node {
         edges.add(added);
     }
     public boolean hasCycles() {
-        Node current = this;
-        for (Node node : edges) {
-            if (node.hasCycles()) {}
+            Set<Node> visited = new HashSet<>();
+            Set<Node> path = new HashSet<>();
+            return dfs(this, visited, path);
         }
-        return false;
-    }
+
+        private static boolean dfs(Node node, Set<Node> visited, Set<Node> path) {
+            if (path.contains(node)) {
+                return true;
+            }
+
+            if (visited.contains(node)) {
+                return false;
+            }
+            visited.add(node);
+            path.add(node);
+
+            for (Node edge : node.getEdges()) {
+                if (dfs(edge, visited, path)) {
+                    return true;
+                }
+            }
+            // הסרת האובייקט מהמסלול הנוכחי
+            path.remove(node);
+            return false;
+        }
+
 
 }
