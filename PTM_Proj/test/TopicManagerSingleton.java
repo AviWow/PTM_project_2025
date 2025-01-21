@@ -1,14 +1,13 @@
-package test;
-import java.util.Collection;
+package test;//package test;
 import java.util.HashMap;
 public class TopicManagerSingleton {
 
     public static class TopicManager{
-        private HashMap<String,Topic> topicMap;
+        private HashMap<String, Topic> topicMap;
         private static final TopicManager instance = new TopicManager();
 
         private TopicManager(){
-            topicMap=new HashMap<String,Topic>();
+            topicMap=new HashMap<String, Topic>();
         }
         public Topic getTopic(String name)
         {

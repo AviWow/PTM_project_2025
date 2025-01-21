@@ -1,10 +1,10 @@
-package test;
+package test;//package test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-//import test.TopicManagerSingleton.TopicManager;
+//import test.test.TopicManagerSingleton.TopicManager;
 
 public class Graph extends ArrayList<Node>{
     private HashMap<String,Node> nodeMap;

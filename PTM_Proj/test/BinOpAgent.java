@@ -1,8 +1,8 @@
-package test;
+package test;//package test;
 
 import java.util.function.BinaryOperator;
 
-//import test.TopicManagerSingleton.TopicManager;
+//import test.test.TopicManagerSingleton.TopicManager;
 
 public class BinOpAgent implements Agent {
     private String name;
