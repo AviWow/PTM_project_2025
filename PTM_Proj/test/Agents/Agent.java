@@ -1,4 +1,6 @@
-package test;//package test;
+package test.Agents;//package test;
+
+import test.Message;
 
 public interface Agent {
     String getName();

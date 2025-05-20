@@ -1,5 +1,7 @@
-package test;//package test;
-import java.util.ArrayList;
+package test.Agents;//package test;
+import test.Message;
+import test.Topic;
+import test.TopicManagerSingleton;
 
 public class IncAgent implements Agent {
     private TopicManagerSingleton.TopicManager topicManager;

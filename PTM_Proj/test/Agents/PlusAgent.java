@@ -1,6 +1,8 @@
-package test;//package test;
+package test.Agents;//package test;
 
-import java.util.ArrayList;
+import test.Message;
+import test.Topic;
+import test.TopicManagerSingleton;
 
 public class PlusAgent implements Agent {
     private TopicManagerSingleton.TopicManager topicManager;
@@ -30,7 +32,7 @@ public class PlusAgent implements Agent {
 
     @Override
     public String getName() {
-        return "test.PlusAgent";
+        return "test.Agents.PlusAgent";
     }
 
     @Override

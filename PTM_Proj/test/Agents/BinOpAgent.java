@@ -1,4 +1,8 @@
-package test;//package test;
+package test.Agents;//package test;
+
+import test.Message;
+import test.Topic;
+import test.TopicManagerSingleton;
 
 import java.util.function.BinaryOperator;
 
