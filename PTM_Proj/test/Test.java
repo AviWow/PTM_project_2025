@@ -2,6 +2,7 @@ package test;
 
 import server.RequestParser;
 import test.Agents.Agent;
+import test.Agents.ParallelAgent;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -214,6 +215,61 @@ public class Test {
         if (!g.hasCycles())
             System.out.println("Wrong result in hasCycles for topics graph with a cycle (-10)");
     }
+
+        static String tn=null;
+
+        private static class TestAgenPara implements Agent{
+
+            public void reset() {
+            }
+            public void close() {
+            }
+            public String getName(){
+                return getClass().getName();
+            }
+
+            @Override
+            public void callback(String topic, Message msg) {
+                tn=Thread.currentThread().getName();
+            }
+
+        }
+    public static void testParallels() {
+        TopicManagerSingleton.TopicManager tm = TopicManagerSingleton.get();
+        int tc = Thread.activeCount();
+        ParallelAgent pa = new ParallelAgent(new TestAgenPara(), 10);
+        tm.getTopic("A").subscribe(pa);
+
+        if (Thread.activeCount() != tc + 1) {
+            System.out.println("your ParallelAgent does not open a thread (-10)");
+        }
+
+
+        tm.getTopic("A").publish(new Message("a"));
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+        }
+        if (tn == null) {
+            System.out.println("your ParallelAgent didn't run the wrapped agent callback (-20)");
+        } else {
+            if (tn.equals(Thread.currentThread().getName())) {
+                System.out.println("the ParallelAgent does not run the wrapped agent in a different thread (-10)");
+            }
+            String last = tn;
+            tm.getTopic("A").publish(new Message("a"));
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+            }
+            if (!last.equals(tn))
+                System.out.println("all messages should be processed in the same thread of ParallelAgent (-10)");
+        }
+
+        pa.close();
+    }
+
+
     public static void testParseRequest() {
         // Test data
         String request = "GET /api/resource?id=123&name=test HTTP/1.1\n" +
