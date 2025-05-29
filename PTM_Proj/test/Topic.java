@@ -1,5 +1,6 @@
-package project_biu.graph;
-package PTM_project_2025;
+package test;//package test;
+
+import test.Agents.Agent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,10 +8,12 @@ import java.util.List;
 public class Topic {
     public final String name;
     private List<Agent> subs;
-    private List<Agent> pubs
+    private List<Agent> pubs;
 
     Topic(String name){
         this.name=name;
+        subs=new ArrayList<>();
+        pubs=new ArrayList<>();
     }
 
     public void subscribe(Agent a){
@@ -24,6 +27,12 @@ public class Topic {
         for(Agent a : subs){
             a.callback(this.name,m);
         }
+    }
+    public List<Agent> getSubs(){
+        return subs;
+    }
+    public List<Agent> getPubs(){
+        return pubs;
     }
 
     public void addPublisher(Agent a){

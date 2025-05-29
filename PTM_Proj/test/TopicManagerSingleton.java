@@ -1,29 +1,29 @@
-//package test;
-package PTM_project_2025;
-
+package test;//package test;
+import java.util.HashMap;
 public class TopicManagerSingleton {
 
     public static class TopicManager{
-        public HashMap<String,Topic> topicMap;
+        private HashMap<String, Topic> topicMap;
         private static final TopicManager instance = new TopicManager();
+
         private TopicManager(){
-            topicMap=new HashMap<String,Topic>();
+            topicMap=new HashMap<String, Topic>();
         }
         public Topic getTopic(String name)
         {
             Topic topic = topicMap.get(name);
             if(topic==null)
             {
-                topicMap.put(name,new Topic(name))
+                topic =new Topic(name);
+                topicMap.put(name,topic);
             }
-            else
                 return topic;
         }
-        public Collection getTopics()
+        public HashMap<String, Topic> getTopics()
         {
             return topicMap;
         }
-        public clear()
+        public void clear()
         {
             topicMap.clear();
         }

@@ -1,5 +1,6 @@
-//package test;
-package PTM_project_2025;
+package test.Agents;//package test;
+
+import test.Message;
 
 public interface Agent {
     String getName();
