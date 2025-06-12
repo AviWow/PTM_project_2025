@@ -1,7 +1,7 @@
-package test.Agents;//package test;
-import test.Message;
-import test.Topic;
-import test.TopicManagerSingleton;
+package graph.Agents;//package test;
+import graph.Message;
+import graph.Topic;
+import graph.TopicManagerSingleton;
 
 public class IncAgent implements Agent {
     private TopicManagerSingleton.TopicManager topicManager;

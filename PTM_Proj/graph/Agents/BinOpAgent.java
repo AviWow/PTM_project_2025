@@ -1,8 +1,8 @@
-package test.Agents;//package test;
+package graph.Agents;//package test;
 
-import test.Message;
-import test.Topic;
-import test.TopicManagerSingleton;
+import graph.Message;
+import graph.Topic;
+import graph.TopicManagerSingleton;
 
 import java.util.function.BinaryOperator;
 

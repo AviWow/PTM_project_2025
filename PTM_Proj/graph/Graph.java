@@ -1,6 +1,6 @@
-package test;//package test;
+package graph;//package test;
 
-import test.Agents.Agent;
+import graph.Agents.Agent;
 
 import java.util.ArrayList;
 import java.util.HashMap;

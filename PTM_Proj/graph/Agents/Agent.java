@@ -1,6 +1,6 @@
-package test.Agents;//package test;
+package graph.Agents;//package test;
 
-import test.Message;
+import graph.Message;
 
 public interface Agent {
     String getName();

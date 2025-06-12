@@ -1,7 +1,7 @@
-package test;//package test;
+package graph;//package test;
 
 
-import test.Agents.BinOpAgent;
+import graph.Agents.BinOpAgent;
 
 public class MathExampleConfig implements Config {
 

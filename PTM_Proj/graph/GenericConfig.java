@@ -1,7 +1,7 @@
-package test;//package test;
+package graph;//package test;
 
 
-import test.Agents.Agent;
+import graph.Agents.Agent;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
